@@ -45,7 +45,7 @@ module.exports = function (req, res, url) {
 				flashvars: {
 					apiserver: "/",
 					storePath: process.env.STORE_URL + "/<store>",
-					ut: 60,
+					ut: 30,
 					autostart: 1,
 					isWide: 1,
 					clientThemePath: process.env.CLIENT_URL + "/<client_theme>",
@@ -81,7 +81,7 @@ module.exports = function (req, res, url) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-            <a class="site-logo" href="http://localhost/html/list.html" title="GoAnimate">
+            <a class="site-logo" href="html/list.html" title="GoAnimate">
 			<img alt="Make a Video Online with GoAnimate.com" src="http://web.archive.org/web/20150423112540im_/http://lightspeed.goanimate.com/static/477/go/img/business_video/home/logo.png">
             </a>
         </div>
