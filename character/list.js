@@ -1,5 +1,6 @@
+const movie = require("../movie/main");
+const character = require("./main");
 const http = require("http");
-const fs = require("fs");
 
 /**
  * @param {http.IncomingMessage} req
@@ -8,8 +9,7 @@ const fs = require("fs");
  * @returns {boolean}
  */
 module.exports = function (req, res, url) {
-	var path = url.pathname;
-	if (req.method != "GET" || !path.startsWith("/stock_thumbs")) return;
-	fs.readFileSync(process.env.THUMB_BASE_URL + path.substr(path.lastIndexOf("/"))).then((v) => res.end(v));
+	if (req.method != "GET" || url.pathname != "/charList") return;
+	Promise.all(movie.listCharacters().map(character.meta)).then((a) => res.end(JSON.stringify(a)));
 	return true;
 };

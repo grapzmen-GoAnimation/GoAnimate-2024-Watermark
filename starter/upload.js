@@ -11,16 +11,17 @@ const fs = require("fs");
  * @returns {boolean}
  */
 module.exports = function (req, res, url) {
-	if (req.method != "POST" || url.path != "/upload_character") return;
+	if (req.method != "POST" || url.path != "/upload_starter") return;
 	new formidable.IncomingForm().parse(req, (e, f, files) => {
 		if (!files.import) return;
 		var path = files.import.path;
 		var buffer = fs.readFileSync(path);
-		var numId = fUtil.getNextFileId("char-", ".xml");
-		parse.unpackXml(buffer, `c-${numId}`);
+		var numId = fUtil.getNextFileId("starter-", ".xml");
+		parse.unpackXml(buffer, `s-${numId}`);
 		fs.unlinkSync(path);
+
 		res.statusCode = 302;
-		var url = `/html/list/characters.html`;
+		var url = `/html/list/starters.html`;
 		res.setHeader("Location", url);
 		res.end();
 	});
