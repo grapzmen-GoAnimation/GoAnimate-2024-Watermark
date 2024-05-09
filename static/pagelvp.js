@@ -46,7 +46,7 @@ module.exports = function (req, res, url) {
 					apiserver: "/",
 					storePath: process.env.STORE_URL + "/<store>",
 					ut: 30,
-					thumbnailURL: "http://localhost/movie_thumbs/${mId}.png",
+					thumbnailURL: "/movie_thumbs/${mId}.png",
 					isEmbed: 1,
 					autostart: 0,
 					isWide: 1,
