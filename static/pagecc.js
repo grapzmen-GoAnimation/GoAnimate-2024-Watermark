@@ -61,7 +61,7 @@ module.exports = function (req, res, url) {
 					tlang: "en_US",
 				},
 				allowScriptAccess: "always",
-					movie: process.env.SWF_URL + "/cc.swf", // 'http://localhost/cc.swf'
+					movie: process.env.SWF_URL + "/cc.swf", // 'cc.swf'
 			};
 			break;
 		}
